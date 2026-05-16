@@ -57,11 +57,23 @@ public class NamedEnderListener {
                 || !(event.getEntity() instanceof Player player)) {
             return;
         }
-        String name = namedEnderChest(player);
         MinecraftServer server = level.getServer();
-        if (name != null && server != null) {
-            NamedEnderData.get(server)
-                .setBlockName(posKey(level, event.getPos()), name);
+        if (server == null) {
+            return;
+        }
+        // CRITICAL: an ender chest can leave a position WITHOUT firing
+        // BreakEvent (piston, explosion, /setblock, other mods). If a
+        // stale pos->channel mapping survived, a later UNNAMED ender
+        // chest placed here would silently open the shared channel,
+        // breaking the "unnamed = pure vanilla" guarantee. So on ANY
+        // ender-chest placement, clear this position first, then re-set
+        // only if the placed item was actually named.
+        String posKey = posKey(level, event.getPos());
+        NamedEnderData data = NamedEnderData.get(server);
+        data.clearBlockName(posKey);
+        String name = namedEnderChest(player);
+        if (name != null) {
+            data.setBlockName(posKey, name);
         }
     }
 
