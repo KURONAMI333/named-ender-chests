@@ -17,19 +17,29 @@ public class NamedEnderContainer extends SimpleContainer {
     private final NamedEnderData data;
     private final String channel;
 
+    private boolean initializing;
+
     public NamedEnderContainer(NamedEnderData data, String channel) {
         super(NamedEnderData.SIZE);
         this.data = data;
         this.channel = channel;
+        this.initializing = true;
         NonNullList<ItemStack> src = data.getChannel(channel);
         for (int i = 0; i < NamedEnderData.SIZE; i++) {
             setItem(i, src.get(i));
         }
+        this.initializing = false;
     }
 
     @Override
     public void setChanged() {
         super.setChanged();
+        // Seeding the container in the constructor calls setItem -> this;
+        // skip the write-back then (it would copy the channel onto itself
+        // 27 times). Only flush real edits.
+        if (initializing) {
+            return;
+        }
         NonNullList<ItemStack> dst = data.getChannel(channel);
         for (int i = 0; i < NamedEnderData.SIZE; i++) {
             dst.set(i, getItem(i));
