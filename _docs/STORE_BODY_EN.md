@@ -35,7 +35,9 @@ Server-side. Place / break / right-click listeners + persistent channel data + a
 
 ## Known limitations
 
-The name is captured when the chest is placed from a renamed item; if you place the very last one in a stack the name may not be captured (place from a stack of 2+). Channels are global per name by design.
+- **No access control — treat the channel name as a shared password, not a lock.** Channels are server-global by name with no ownership: anyone who renames an ender chest to the same string opens the same inventory. This is intentional (cross-base / cross-player routing) but it means a named ender chest is **not private storage** — anyone who knows or guesses the name can read and empty it. For private storage use a plain **unnamed** ender chest (untouched, pure-vanilla per-player). Pick obscure names for anything you don't want shared.
+- The name is captured when the chest is placed from a renamed item; placing the very last one in a stack may not capture it (place from a stack of 2+).
+- A named ender chest **moved by a piston / structure block reverts to a vanilla ender chest** (the name is only captured at hand-placement) — its contents are safe in the channel; break and re-place a same-named chest to rebind.
 
 ## Install
 

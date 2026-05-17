@@ -64,8 +64,27 @@ public class NamedEnderData extends SavedData {
         return blockNames.get(posKey);
     }
 
+    /**
+     * Copy every live container's current contents into the persistent
+     * {@code channels} map. Normal edits flush via the container's
+     * {@code setChanged()}, but that is an invariant we don't want to
+     * bet item safety on across a crash / {@code /stop} mid-session, so
+     * we reconcile here before every serialize. Cheap insurance against
+     * silent item loss.
+     */
+    private void flushLive() {
+        live.forEach((name, c) -> {
+            NonNullList<ItemStack> dst = channels.computeIfAbsent(
+                name, k -> NonNullList.withSize(SIZE, ItemStack.EMPTY));
+            for (int i = 0; i < SIZE; i++) {
+                dst.set(i, c.getItem(i));
+            }
+        });
+    }
+
     @Override
     public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
+        flushLive();
         CompoundTag chTag = new CompoundTag();
         channels.forEach((name, list) -> {
             CompoundTag one = new CompoundTag();
