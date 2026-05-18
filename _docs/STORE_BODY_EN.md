@@ -21,9 +21,10 @@ Concurrent access works exactly like two players at one normal chest (single sha
 
 | Minecraft | NeoForge | Forge | Fabric |
 |---|:---:|:---:|:---:|
-| 1.21.1 | ✅ | planned | planned |
+| 1.21.1 | ✅ | ✅ | ✅ |
+| 1.20.1 | — | ✅ | ✅ |
 
-Forge / Fabric / 1.20.1 ports planned; this release is NeoForge 1.21.1.
+Ships for NeoForge / Forge / Fabric on Minecraft 1.21.1, and Forge / Fabric on Minecraft 1.20.1 (NeoForge has no 1.20.1 build). Server-side, dependency-free, identical behaviour on every loader.
 
 ## Dependencies
 
@@ -41,7 +42,7 @@ Server-side. Place / break / right-click listeners + persistent channel data + a
 
 ## Install
 
-1. Install NeoForge for Minecraft 1.21.1.
+1. Install your mod loader — NeoForge, Forge, or Fabric — for Minecraft 1.21.1 or 1.20.1.
 2. Drop `namedenderchests-0.1.0.jar` into `mods/`. Server-side (clients don't need it).
 
 - Minecraft 1.21.1 · NeoForge · JDK 21
