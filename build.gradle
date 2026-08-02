@@ -59,18 +59,13 @@ configurations {
 }
 
 repositories {
-    // Vanilla NeoForge only. Lag Whisperer is read-only and on-demand —
-    // no external libs, no host-mod dependency, not even on Free Server Saver.
+    // Vanilla NeoForge only — no external libs, no host-mod dependency.
 }
 
 dependencies {
-    // Intentionally empty at runtime: keep the jar tiny so it runs on the
-    // same 2-4 GB free hosts whose lag we are explaining.
+    // Intentionally empty at runtime: keep the jar tiny.
 
-    // Test-only. DiagnosisEngine is a pure function over the ScanResult
-    // record (no Minecraft types), so its rules are unit-testable without
-    // the game classpath — which is exactly where the real risk lives
-    // (a wrong "it's a mob farm" is worse than saying nothing).
+    // Test-only.
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
