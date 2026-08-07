@@ -29,6 +29,6 @@ Known v0.1 limitation: the name is captured when the chest is placed from a rena
 
 ## License
 
-MIT — modpack inclusion welcome, no credit required.
+All Rights Reserved — modpack inclusion welcome, no credit required. Source is published so you can read exactly what it does.
 
 Author: KURONAMI
