@@ -1,5 +1,3 @@
-# Named Ender Chests
-
 Rename an Ender Chest on an anvil, place it, and every Ender Chest with that name shares one inventory — server-wide. Simple item routing with a vanilla block; unnamed Ender Chests stay 100% vanilla.
 
 A small vanilla twist for base item-routing — not a storage network, just smarter ender chests.
@@ -14,6 +12,6 @@ Concurrent access works like two players at one normal chest (a single shared ba
 
 It rides entirely on the vanilla Ender Chest — no mixin, no config, no custom block or item — so it can't conflict with other mods.
 
-Server-side — install on the server only; clients don't need it.
+Bugs and questions: comment on the CurseForge page, or DM @kuronami333 on X.
 
-Free to use in any modpack. Source and issues: https://github.com/KURONAMI333/named-ender-chests
+All Rights Reserved. Modpack inclusion is allowed without permission or credit. Source: https://github.com/KURONAMI333/named-ender-chests
