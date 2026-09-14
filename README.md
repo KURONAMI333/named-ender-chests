@@ -32,3 +32,11 @@ Known v0.1 limitation: the name is captured when the chest is placed from a rena
 All Rights Reserved — modpack inclusion welcome, no credit required. Source is published so you can read exactly what it does.
 
 Author: KURONAMI
+
+## Downloads and support
+
+Downloads: [CurseForge](https://www.curseforge.com/minecraft/mc-mods/named-ender-chests).
+
+For bugs and questions, comment on the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/named-ender-chests) or DM [@kuronami333 on X](https://x.com/kuronami333).
+
+[Source](https://github.com/KURONAMI333/named-ender-chests) · [License](LICENSE)
